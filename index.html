@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(rgba(30, 144, 255, 0.1), rgba(255, 255, 255, 1)); }
         .service-card:hover { transform: translateY(-10px); transition: all 0.3s ease; }
         
-        /* Mobile menu animation */
         #mobile-menu {
             transition: all 0.3s ease-in-out;
             max-height: 0;
@@ -89,17 +90,7 @@
                 <div class="md:w-1/2 space-y-6">
                     <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">About BrightSmile</span>
                     <h2 class="text-4xl font-bold text-gray-900 leading-tight">Your Healthier Smile Starts With A Better Experience</h2>
-                    <p class="text-gray-600 text-lg">We have been providing premium dental care for over 15 years. Our mission is to make every patient feel at home, using advanced techniques to ensure painless and effective treatments.</p>
-                    <div class="grid grid-cols-2 gap-6 pt-4">
-                        <div>
-                            <h4 class="font-bold text-gray-900">Expert Doctors</h4>
-                            <p class="text-gray-500 text-sm">Certified specialists with years of clinical experience.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Modern Tech</h4>
-                            <p class="text-gray-500 text-sm">3D Imaging and laser dentistry for precision.</p>
-                        </div>
-                    </div>
+                    <p class="text-gray-600 text-lg">We have been providing premium dental care for over 15 years. Our mission is to make every patient feel at home.</p>
                 </div>
             </div>
         </div>
@@ -107,8 +98,7 @@
 
     <section id="services" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-4">Our Specialized Services</h2>
-            <p class="text-gray-600 mb-16 max-w-2xl mx-auto">Comprehensive dental care tailored to your specific needs.</p>
+            <h2 class="text-4xl font-bold mb-16">Our Specialized Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
                     <i class="fas fa-tooth text-4xl text-blue-500 mb-6"></i>
@@ -134,14 +124,14 @@
             <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
                 <div class="lg:w-1/2 p-10 md:p-16">
                     <h2 class="text-3xl font-bold mb-2">Book Your Visit</h2>
-                    <p class="text-gray-500 mb-8 font-medium">Monday - Friday: 9 AM - 1 PM & 2 PM - 5 PM</p>
+                    <p class="text-gray-500 mb-8 font-medium">Mon-Fri: 9am-1pm & 2pm-5pm</p>
                     
                     <form id="bookingForm" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" id="patientName" placeholder="Full Name" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
-                            <input type="email" id="patientEmail" placeholder="Email Address" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
+                            <input type="text" id="patientName" placeholder="Full Name" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200">
+                            <input type="email" id="patientEmail" placeholder="Email Address" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200">
                         </div>
-                        <select id="serviceType" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
+                        <select id="serviceType" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200">
                             <option value="">Select Service</option>
                             <option value="Routine Cleaning">Routine Cleaning (30 min)</option>
                             <option value="Teeth Whitening">Teeth Whitening (60 min)</option>
@@ -149,7 +139,7 @@
                             <option value="Braces Check-up">Braces Check-up (30 min)</option>
                         </select>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <select id="apptDay" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
+                            <select id="apptDay" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200">
                                 <option value="">Select Day</option>
                                 <option value="Monday">Monday</option>
                                 <option value="Tuesday">Tuesday</option>
@@ -157,50 +147,39 @@
                                 <option value="Thursday">Thursday</option>
                                 <option value="Friday">Friday</option>
                             </select>
-                            <select id="apptTime" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
+                            <select id="apptTime" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200">
                                 <option value="">Select Time</option>
                             </select>
                         </div>
-                        <textarea id="notes" placeholder="Any special requests?" rows="3" class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200"></textarea>
-                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition shadow-lg transform active:scale-95">Confirm Appointment</button>
+                        <textarea id="notes" placeholder="Any special requests?" rows="2" class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200"></textarea>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition">Confirm Appointment</button>
                     </form>
                 </div>
                 <div class="lg:w-1/2 min-h-[300px] bg-gray-100">
-                    <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2152342084!2d-73.987844!3d40.748440!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjQiTiA3M8KwNTknMTYuMiJX!5e0!3m2!1sen!2sus!4v1625000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe class="w-full h-full grayscale" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83543450937!2d144.9537353153166!3d-37.816279742021234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1a32f99d0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1617812345678!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2026 BrightSmile Dental Clinic. All Rights Reserved.</p>
-        </div>
-    </footer>
-
     <script>
-        // 1. MOBILE MENU TOGGLE
+        // 1. FIXME: REPLACE THESE WITH YOUR ACTUAL IDS
+        emailjs.init("YOUR_PUBLIC_KEY"); 
+        const SERVICE_ID = 'service_xzdfrna';
+        const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
+        // 2. Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
+        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+        navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('open'); }); });
 
-        // Close menu when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        });
-
-        // 2. BOOKING SYSTEM LOGIC
+        // 3. Time Slots
         const morningSlots = ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM"];
         const afternoonSlots = ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"];
         const allSlots = [...morningSlots, ...afternoonSlots];
-
-        // Track bookings in-memory
         let bookings = { "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [] };
 
         const daySelect = document.getElementById('apptDay');
@@ -221,17 +200,29 @@
             }
         });
 
+        // 4. Booking and Email Logic
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('patientName').value;
-            const day = daySelect.value;
-            const time = timeSelect.value;
-            const service = document.getElementById('serviceType').value;
+            
+            const templateParams = {
+                to_name: document.getElementById('patientName').value,
+                to_email: document.getElementById('patientEmail').value,
+                service: document.getElementById('serviceType').value,
+                appt_day: daySelect.value,
+                appt_time: timeSelect.value,
+                notes: document.getElementById('notes').value
+            };
 
-            bookings[day].push(time);
-            alert(`Booking Confirmed!\n\nPatient: ${name}\nService: ${service}\nTime: ${day} at ${time}`);
-            this.reset();
-            timeSelect.innerHTML = '<option value="">Select Time</option>';
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+                .then(function() {
+                    alert(`Success! Appointment confirmed for ${templateParams.to_name}. Check your email!`);
+                    bookings[templateParams.appt_day].push(templateParams.appt_time);
+                    document.getElementById('bookingForm').reset();
+                    timeSelect.innerHTML = '<option value="">Select Time</option>';
+                }, function(error) {
+                    console.error('Email Error:', error);
+                    alert("Email failed to send. Check console.");
+                });
         });
     </script>
 </body>
