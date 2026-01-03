@@ -156,7 +156,7 @@
                     </form>
                 </div>
                 <div class="lg:w-1/2 min-h-[300px] bg-gray-100">
-                    <iframe class="w-full h-full grayscale" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6175404113193!2d-73.9876543!3d40.7484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a166!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1690000000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe class="w-full h-full grayscale" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2151322811!2d-73.985428!3d40.748817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU1LjciTiA3M8KwNTknMDcuNSJX!5e0!3m2!1sen!2sus!4v1634567890123" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -173,7 +173,7 @@
         emailjs.init("xvdYzhw3D7a8RytFr"); 
         
         const SERVICE_ID = 'service_xzdfrna';
-        const TEMPLATE_ID = 'xvdYzhw3D7a8RytFr';
+        const TEMPLATE_ID = 'template_zqjzvfn';
 
         // 2. Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
@@ -183,15 +183,18 @@
         menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
         navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('open'); }); });
 
-        // 3. Time Slots
+        // 3. Time Slots Data
         const morningSlots = ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM"];
         const afternoonSlots = ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"];
         const allSlots = [...morningSlots, ...afternoonSlots];
+        
+        // Local storage for booked times
         let bookings = { "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [] };
 
         const daySelect = document.getElementById('apptDay');
         const timeSelect = document.getElementById('apptTime');
 
+        // Update Time Dropdown when a day is selected
         daySelect.addEventListener('change', function() {
             const day = this.value;
             timeSelect.innerHTML = '<option value="">Select Time</option>';
@@ -207,7 +210,7 @@
             }
         });
 
-        // 4. Booking and Email Logic
+        // 4. Form Submission & Email Logic
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -220,15 +223,21 @@
                 notes: document.getElementById('notes').value
             };
 
+            // Send via EmailJS
             emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-                .then(function() {
-                    alert(`Success! Appointment confirmed for ${templateParams.to_name}. Check your email!`);
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert(`Success! Appointment confirmed for ${templateParams.to_name}. A confirmation email has been sent to ${templateParams.to_email}.`);
+                    
+                    // Add to booked list so it can't be picked again
                     bookings[templateParams.appt_day].push(templateParams.appt_time);
+                    
+                    // Reset the form
                     document.getElementById('bookingForm').reset();
                     timeSelect.innerHTML = '<option value="">Select Time</option>';
                 }, function(error) {
-                    console.error('Email Error:', error);
-                    alert("Email failed to send. Check the Console (F12) to see if the Public Key or Template ID is wrong.");
+                    console.error('FAILED...', error);
+                    alert("Booking confirmed locally, but the email failed to send. Check your EmailJS dashboard.");
                 });
         });
     </script>
