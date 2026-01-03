@@ -16,16 +16,8 @@
         body { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(rgba(30, 144, 255, 0.1), rgba(255, 255, 255, 1)); }
         .service-card:hover { transform: translateY(-10px); transition: all 0.3s ease; }
-        
-        #mobile-menu {
-            transition: all 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-        #mobile-menu.open {
-            max-height: 500px;
-            border-bottom: 1px solid #e5e7eb;
-        }
+        #mobile-menu { transition: all 0.3s ease-in-out; max-height: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 500px; border-bottom: 1px solid #e5e7eb; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -37,21 +29,16 @@
                     <i class="fas fa-tooth text-blue-500 text-3xl"></i>
                     <span class="text-2xl font-bold text-blue-600 tracking-tight">BrightSmile</span>
                 </div>
-                
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#" class="hover:text-blue-500 transition">Home</a>
                     <a href="#about" class="hover:text-blue-500 transition">About Us</a>
                     <a href="#services" class="hover:text-blue-500 transition">Services</a>
                     <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Book Now</a>
                 </div>
-
                 <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-600 p-2 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
+                    <button id="menu-btn" class="text-gray-600 p-2 focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
                 </div>
             </div>
-
             <div id="mobile-menu" class="md:hidden bg-white">
                 <div class="flex flex-col space-y-4 py-6 px-4">
                     <a href="#" class="nav-link text-lg font-medium border-b pb-2">Home</a>
@@ -66,56 +53,12 @@
     <section id="home" class="pt-32 pb-20 hero-gradient">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 space-y-6">
-                <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                    Expert Dental Care for Your <span class="text-blue-600">Whole Family</span>
-                </h1>
-                <p class="text-lg text-gray-600 max-w-lg">
-                    Experience world-class dental services in a relaxing environment. We use the latest technology to give you the smile you've always wanted.
-                </p>
-                <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                    Book an Appointment
-                </a>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">Expert Dental Care for Your <span class="text-blue-600">Whole Family</span></h1>
+                <p class="text-lg text-gray-600 max-w-lg">Experience world-class dental services in a relaxing environment. We use the latest technology to give you the smile you've always wanted.</p>
+                <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">Book an Appointment</a>
             </div>
             <div class="md:w-1/2 mt-12 md:mt-0">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Dentist working" class="rounded-2xl shadow-2xl">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" alt="Our Office" class="rounded-3xl shadow-xl">
-                </div>
-                <div class="md:w-1/2 space-y-6">
-                    <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">About BrightSmile</span>
-                    <h2 class="text-4xl font-bold text-gray-900 leading-tight">Your Healthier Smile Starts With A Better Experience</h2>
-                    <p class="text-gray-600 text-lg">We provide premium dental care for the community. Our mission is to make every patient feel at home while receiving high-end professional treatment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-16">Our Specialized Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-                    <i class="fas fa-tooth text-4xl text-blue-500 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Teeth Whitening</h3>
-                    <p class="text-gray-500">Remove stains and brighten your smile in just one professional session.</p>
-                </div>
-                <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-                    <i class="fas fa-align-center text-4xl text-blue-500 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Invisalign</h3>
-                    <p class="text-gray-500">Straighten your teeth discreetly without the need for traditional metal braces.</p>
-                </div>
-                <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-                    <i class="fas fa-vial text-4xl text-blue-500 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Oral Checkups</h3>
-                    <p class="text-gray-500">Comprehensive exams and cleanings to maintain your long-term oral health.</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Dentist" class="rounded-2xl shadow-2xl">
             </div>
         </div>
     </section>
@@ -124,48 +67,48 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
                 <div class="lg:w-1/2 p-10 md:p-16">
-                    <h2 class="text-3xl font-bold mb-2">Book Your Visit</h2>
-                    <p class="text-gray-500 mb-8 font-medium">Monday - Friday: 9 AM - 5 PM</p>
-                    
-                    <form id="bookingForm" class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" id="patientName" placeholder="Full Name" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
-                            <input type="email" id="patientEmail" placeholder="Email Address" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
-                        </div>
-                        <select id="serviceType" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
-                            <option value="">Select Service</option>
-                            <option value="Routine Cleaning">Routine Cleaning</option>
-                            <option value="Teeth Whitening">Teeth Whitening</option>
-                            <option value="Invisalign">Invisalign Consultation</option>
-                        </select>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <select id="apptDay" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
-                                <option value="">Select Day</option>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
+                    <div id="booking-container">
+                        <h2 class="text-3xl font-bold mb-2">Book Your Visit</h2>
+                        <p class="text-gray-500 mb-8 font-medium">Monday - Friday: 9 AM - 5 PM</p>
+                        
+                        <form id="bookingForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" id="patientName" placeholder="Full Name" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
+                                <input type="email" id="patientEmail" placeholder="Email Address" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
+                            </div>
+                            <select id="serviceType" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
+                                <option value="">Select Service</option>
+                                <option value="Routine Cleaning">Routine Cleaning</option>
+                                <option value="Teeth Whitening">Teeth Whitening</option>
+                                <option value="Invisalign">Invisalign Consultation</option>
                             </select>
-                            <select id="apptTime" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
-                                <option value="">Select Time</option>
-                            </select>
-                        </div>
-                        <textarea id="notes" placeholder="Notes for the doctor..." rows="2" class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500"></textarea>
-                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition">Confirm Appointment</button>
-                    </form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <select id="apptDay" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
+                                    <option value="">Select Day</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                </select>
+                                <select id="apptTime" required class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500">
+                                    <option value="">Select Time</option>
+                                </select>
+                            </div>
+                            <textarea id="notes" placeholder="Notes..." rows="2" class="w-full p-4 bg-gray-50 rounded-2xl border border-gray-200 focus:outline-blue-500"></textarea>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition">Confirm Appointment</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="lg:w-1/2 min-h-[300px] bg-gray-100">
-                    <iframe class="w-full h-full grayscale" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215239561492!2d-73.98784412423985!3d40.75797873483962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe class="w-full h-full grayscale" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.9!3d40.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzAwLjAiTiA3M8KwNTQnMDAuMCJX!5e0!3m2!1sen!2sus!4v123456789" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2026 BrightSmile Dental Clinic. All Rights Reserved.</p>
-        </div>
+    <footer class="bg-gray-900 text-white py-12 text-center">
+        <p class="text-gray-400">© 2026 BrightSmile Dental Clinic. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -174,15 +117,50 @@
         const SERVICE_ID = 'service_xzdfrna';
         const TEMPLATE_ID = 'template_zqjzvfn';
 
-        // 2. Mobile Menu
+        // 2. Weekly Reset Logic
+        function getWeekNumber(d) {
+            d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+            d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+            var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        }
+
+        function checkWeeklyReset() {
+            const currentWeek = getWeekNumber(new Date());
+            const savedWeek = localStorage.getItem('booking_week_id');
+            if (!savedWeek || currentWeek > parseInt(savedWeek)) {
+                localStorage.setItem('booking_week_id', currentWeek);
+                localStorage.setItem('dental_bookings', JSON.stringify({
+                    "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": []
+                }));
+            }
+        }
+        checkWeeklyReset();
+        let bookings = JSON.parse(localStorage.getItem('dental_bookings'));
+
+        // 3. Holiday Check
+        function isHoliday() {
+            const today = new Date();
+            const dateStr = `${today.getMonth() + 1}/${today.getDate()}`;
+            const holidays = ["1/1", "7/4", "11/26", "12/25"]; // New Year, July 4, Thanksgiving, Xmas
+            if (holidays.includes(dateStr)) {
+                document.getElementById('booking-container').innerHTML = `
+                    <h2 class="text-3xl font-bold mb-4 text-red-600">Office Closed</h2>
+                    <p class="text-lg text-gray-600">We are currently closed in observance of a National Holiday. Please return tomorrow to book your appointment.</p>
+                `;
+                return true;
+            }
+            return false;
+        }
+        isHoliday();
+
+        // 4. Mobile Menu
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
 
-        // 3. Time Slots
+        // 5. Time Slots
         const slots = ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"];
-        let bookings = { "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [] };
-        
         const daySelect = document.getElementById('apptDay');
         const timeSelect = document.getElementById('apptTime');
 
@@ -191,15 +169,17 @@
             timeSelect.innerHTML = '<option value="">Select Time</option>';
             if (day) {
                 slots.forEach(slot => {
+                    const isBooked = bookings[day].includes(slot);
                     const option = document.createElement('option');
                     option.value = slot;
-                    option.textContent = slot;
+                    option.textContent = isBooked ? `${slot} (Booked)` : slot;
+                    option.disabled = isBooked;
                     timeSelect.appendChild(option);
                 });
             }
         });
 
-        // 4. Booking Submission
+        // 6. Form Submission
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const templateParams = {
@@ -213,11 +193,13 @@
 
             emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
                 .then(function() {
-                    alert(`Confirmed! See you on ${templateParams.appt_day}.`);
+                    alert(`Confirmed for ${templateParams.appt_day}!`);
+                    bookings[templateParams.appt_day].push(templateParams.appt_time);
+                    localStorage.setItem('dental_bookings', JSON.stringify(bookings));
                     document.getElementById('bookingForm').reset();
                     timeSelect.innerHTML = '<option value="">Select Time</option>';
                 }, function(error) {
-                    alert("Email failed. Check console (F12).");
+                    alert("Email failed. Check console.");
                 });
         });
     </script>
