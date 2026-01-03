@@ -13,14 +13,22 @@
         body { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(rgba(30, 144, 255, 0.1), rgba(255, 255, 255, 1)); }
         .service-card:hover { transform: translateY(-10px); transition: all 0.3s ease; }
-        select:disabled { cursor: not-allowed; background-color: #f3f4f6; }
-        /* Smooth transition for mobile menu */
-        #mobile-menu { transition: max-height 0.3s ease-in-out; overflow: hidden; }
+        
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            border-bottom: 1px solid #e5e7eb;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
 
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-2">
@@ -30,75 +38,118 @@
                 
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#" class="hover:text-blue-500 transition">Home</a>
-                    <a href="#about" class="hover:text-blue-500 transition">About</a>
+                    <a href="#about" class="hover:text-blue-500 transition">About Us</a>
                     <a href="#services" class="hover:text-blue-500 transition">Services</a>
                     <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Book Now</a>
                 </div>
 
                 <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <button id="menu-btn" class="text-gray-600 p-2 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
 
-            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-4">
-                <div class="flex flex-col space-y-4 pt-4 px-2">
-                    <a href="#" class="mobile-link hover:text-blue-500 font-medium">Home</a>
-                    <a href="#about" class="mobile-link hover:text-blue-500 font-medium">About</a>
-                    <a href="#services" class="mobile-link hover:text-blue-500 font-medium">Services</a>
-                    <a href="#contact" class="mobile-link bg-blue-600 text-white px-5 py-2 rounded-lg text-center font-bold">Book Now</a>
+            <div id="mobile-menu" class="md:hidden bg-white">
+                <div class="flex flex-col space-y-4 py-6 px-4">
+                    <a href="#" class="nav-link text-lg font-medium border-b pb-2">Home</a>
+                    <a href="#about" class="nav-link text-lg font-medium border-b pb-2">About Us</a>
+                    <a href="#services" class="nav-link text-lg font-medium border-b pb-2">Services</a>
+                    <a href="#contact" class="nav-link bg-blue-600 text-white px-5 py-3 rounded-xl text-center font-bold">Book Now</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 hero-gradient">
+    <section id="home" class="pt-32 pb-20 hero-gradient">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 space-y-6">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                    Your Dream Smile Starts <span class="text-blue-600">Right Here</span>
+                    Expert Dental Care for Your <span class="text-blue-600">Whole Family</span>
                 </h1>
                 <p class="text-lg text-gray-600 max-w-lg">
-                    From routine cleanings to advanced orthodontics, we provide expert care in a comfortable environment.
+                    Experience world-class dental services in a relaxing environment. We use the latest technology to give you the smile you've always wanted.
                 </p>
                 <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
                     Book an Appointment
                 </a>
             </div>
             <div class="md:w-1/2 mt-12 md:mt-0">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Professional Dentist" class="rounded-2xl shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Dentist working" class="rounded-2xl shadow-2xl">
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-blue-600">
+    <section id="about" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" alt="Our Office" class="rounded-3xl shadow-xl">
+                </div>
+                <div class="md:w-1/2 space-y-6">
+                    <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">About BrightSmile</span>
+                    <h2 class="text-4xl font-bold text-gray-900 leading-tight">Your Healthier Smile Starts With A Better Experience</h2>
+                    <p class="text-gray-600 text-lg">We have been providing premium dental care for over 15 years. Our mission is to make every patient feel at home, using advanced techniques to ensure painless and effective treatments.</p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Expert Doctors</h4>
+                            <p class="text-gray-500 text-sm">Certified specialists with years of clinical experience.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Modern Tech</h4>
+                            <p class="text-gray-500 text-sm">3D Imaging and laser dentistry for precision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Our Specialized Services</h2>
+            <p class="text-gray-600 mb-16 max-w-2xl mx-auto">Comprehensive dental care tailored to your specific needs.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                    <i class="fas fa-tooth text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Teeth Whitening</h3>
+                    <p class="text-gray-500">Remove stains and brighten your smile in just one professional session.</p>
+                </div>
+                <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                    <i class="fas fa-align-center text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Invisalign</h3>
+                    <p class="text-gray-500">Straighten your teeth discreetly without the need for traditional metal braces.</p>
+                </div>
+                <div class="service-card bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                    <i class="fas fa-vial text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Oral Checkups</h3>
+                    <p class="text-gray-500">Comprehensive exams and cleanings to maintain your long-term oral health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-blue-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
                 <div class="lg:w-1/2 p-10 md:p-16">
-                    <h2 class="text-3xl font-bold mb-2">Schedule Your Visit</h2>
-                    <p class="text-gray-500 mb-8">Mon-Fri: 9am-1pm & 2pm-5pm</p>
+                    <h2 class="text-3xl font-bold mb-2">Book Your Visit</h2>
+                    <p class="text-gray-500 mb-8 font-medium">Monday - Friday: 9 AM - 1 PM & 2 PM - 5 PM</p>
                     
                     <form id="bookingForm" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" id="patientName" placeholder="Full Name" required class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-100">
-                            <input type="email" id="patientEmail" placeholder="Email Address" required class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-100">
+                            <input type="text" id="patientName" placeholder="Full Name" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
+                            <input type="email" id="patientEmail" placeholder="Email Address" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
                         </div>
-
-                        <div class="w-full">
-                            <select id="serviceType" required class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-100">
-                                <option value="">Select Service</option>
-                                <option value="Routine Cleaning">Routine Cleaning (30 min)</option>
-                                <option value="Teeth Whitening">Teeth Whitening (60 min)</option>
-                                <option value="Invisalign Consultation">Invisalign Consultation (45 min)</option>
-                                <option value="Braces Check-up">Braces Check-up (30 min)</option>
-                                <option value="Dental Filling">Dental Filling (45 min)</option>
-                                <option value="Emergency Pain Relief">Emergency Appointment (30 min)</option>
-                            </select>
-                        </div>
-
+                        <select id="serviceType" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
+                            <option value="">Select Service</option>
+                            <option value="Routine Cleaning">Routine Cleaning (30 min)</option>
+                            <option value="Teeth Whitening">Teeth Whitening (60 min)</option>
+                            <option value="Invisalign Consultation">Invisalign Consultation (45 min)</option>
+                            <option value="Braces Check-up">Braces Check-up (30 min)</option>
+                        </select>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <select id="apptDay" required class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-100">
+                            <select id="apptDay" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
                                 <option value="">Select Day</option>
                                 <option value="Monday">Monday</option>
                                 <option value="Tuesday">Tuesday</option>
@@ -106,84 +157,79 @@
                                 <option value="Thursday">Thursday</option>
                                 <option value="Friday">Friday</option>
                             </select>
-                            <select id="apptTime" required class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-100">
+                            <select id="apptTime" required class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200">
                                 <option value="">Select Time</option>
                             </select>
                         </div>
-
-                        <textarea id="notes" placeholder="Additional Notes (Optional)" rows="2" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-100"></textarea>
-                        
-                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg">Confirm Booking</button>
+                        <textarea id="notes" placeholder="Any special requests?" rows="3" class="w-full p-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 border border-gray-200"></textarea>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition shadow-lg transform active:scale-95">Confirm Appointment</button>
                     </form>
                 </div>
-                <div class="lg:w-1/2 h-64 lg:h-auto bg-gray-200">
-                    <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153166!3d-37.816279742021234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce6e0!2zTWVsYm91cm5lIFZJQywgQXVzdHJhbGlh!5e0!3m2!1sen!2sus!4v1633000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="lg:w-1/2 min-h-[300px] bg-gray-100">
+                    <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2152342084!2d-73.987844!3d40.748440!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjQiTiA3M8KwNTknMTYuMiJX!5e0!3m2!1sen!2sus!4v1625000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>© 2026 BrightSmile Dental Clinic. Professional Dental Services.</p>
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2026 BrightSmile Dental Clinic. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // --- MOBILE MENU LOGIC ---
+        // 1. MOBILE MENU TOGGLE
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open');
         });
 
         // Close menu when a link is clicked
-        mobileLinks.forEach(link => {
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('open');
             });
         });
 
-        // --- BOOKING LOGIC ---
+        // 2. BOOKING SYSTEM LOGIC
         const morningSlots = ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM"];
         const afternoonSlots = ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"];
         const allSlots = [...morningSlots, ...afternoonSlots];
 
-        let bookings = {
-            "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": []
-        };
+        // Track bookings in-memory
+        let bookings = { "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [] };
 
         const daySelect = document.getElementById('apptDay');
         const timeSelect = document.getElementById('apptTime');
-        const bookingForm = document.getElementById('bookingForm');
 
         daySelect.addEventListener('change', function() {
             const day = this.value;
             timeSelect.innerHTML = '<option value="">Select Time</option>';
-            
             if (day) {
                 allSlots.forEach(slot => {
                     const isBooked = bookings[day].includes(slot);
                     const option = document.createElement('option');
                     option.value = slot;
-                    option.textContent = isBooked ? `${slot} (Unavailable)` : slot;
+                    option.textContent = isBooked ? `${slot} (Booked)` : slot;
                     option.disabled = isBooked;
                     timeSelect.appendChild(option);
                 });
             }
         });
 
-        bookingForm.addEventListener('submit', function(e) {
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('patientName').value;
-            const service = document.getElementById('serviceType').value;
             const day = daySelect.value;
             const time = timeSelect.value;
+            const service = document.getElementById('serviceType').value;
 
             bookings[day].push(time);
-            alert(`Success!\n\nPatient: ${name}\nService: ${service}\nTime: ${day} at ${time}`);
+            alert(`Booking Confirmed!\n\nPatient: ${name}\nService: ${service}\nTime: ${day} at ${time}`);
             this.reset();
             timeSelect.innerHTML = '<option value="">Select Time</option>';
         });
