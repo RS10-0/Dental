@@ -14,6 +14,8 @@
         .hero-gradient { background: linear-gradient(rgba(30, 144, 255, 0.1), rgba(255, 255, 255, 1)); }
         .service-card:hover { transform: translateY(-10px); transition: all 0.3s ease; }
         select:disabled { cursor: not-allowed; background-color: #f3f4f6; }
+        /* Smooth transition for mobile menu */
+        #mobile-menu { transition: max-height 0.3s ease-in-out; overflow: hidden; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -25,11 +27,27 @@
                     <i class="fas fa-tooth text-blue-500 text-3xl"></i>
                     <span class="text-2xl font-bold text-blue-600 tracking-tight">BrightSmile</span>
                 </div>
+                
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#" class="hover:text-blue-500 transition">Home</a>
                     <a href="#about" class="hover:text-blue-500 transition">About</a>
                     <a href="#services" class="hover:text-blue-500 transition">Services</a>
                     <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Book Now</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-4">
+                <div class="flex flex-col space-y-4 pt-4 px-2">
+                    <a href="#" class="mobile-link hover:text-blue-500 font-medium">Home</a>
+                    <a href="#about" class="mobile-link hover:text-blue-500 font-medium">About</a>
+                    <a href="#services" class="mobile-link hover:text-blue-500 font-medium">Services</a>
+                    <a href="#contact" class="mobile-link bg-blue-600 text-white px-5 py-2 rounded-lg text-center font-bold">Book Now</a>
                 </div>
             </div>
         </div>
@@ -99,7 +117,7 @@
                     </form>
                 </div>
                 <div class="lg:w-1/2 h-64 lg:h-auto bg-gray-200">
-                    <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215233157!2d-73.985428!3d40.748440" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153166!3d-37.816279742021234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce6e0!2zTWVsYm91cm5lIFZJQywgQXVzdHJhbGlh!5e0!3m2!1sen!2sus!4v1633000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -112,11 +130,27 @@
     </footer>
 
     <script>
+        // --- MOBILE MENU LOGIC ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- BOOKING LOGIC ---
         const morningSlots = ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM"];
         const afternoonSlots = ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"];
         const allSlots = [...morningSlots, ...afternoonSlots];
 
-        // Track bookings per day
         let bookings = {
             "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": []
         };
@@ -125,7 +159,6 @@
         const timeSelect = document.getElementById('apptTime');
         const bookingForm = document.getElementById('bookingForm');
 
-        // Update Time Dropdown
         daySelect.addEventListener('change', function() {
             const day = this.value;
             timeSelect.innerHTML = '<option value="">Select Time</option>';
@@ -142,20 +175,15 @@
             }
         });
 
-        // Handle Form Submission
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const name = document.getElementById('patientName').value;
             const service = document.getElementById('serviceType').value;
             const day = daySelect.value;
             const time = timeSelect.value;
 
-            // Save booking
             bookings[day].push(time);
-
-            alert(`Success!\n\nPatient: ${name}\nService: ${service}\nTime: ${day} at ${time}\n\nWe will see you then!`);
-            
+            alert(`Success!\n\nPatient: ${name}\nService: ${service}\nTime: ${day} at ${time}`);
             this.reset();
             timeSelect.innerHTML = '<option value="">Select Time</option>';
         });
